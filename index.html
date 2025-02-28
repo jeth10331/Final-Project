@@ -21,16 +21,33 @@
         h1 {
             color: #333;
         }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-box {
+            margin: 10px 0;
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
         .login-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 18px;
+            display: block;
+            padding: 8px 15px;
+            font-size: 16px;
             color: white;
             background-color: #007BFF;
             border: none;
             border-radius: 5px;
             text-decoration: none;
             cursor: pointer;
+            margin-top: 10px;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
         }
         .login-button:hover {
             background-color: #0056b3;
@@ -38,18 +55,27 @@
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Welcome to the School Attendance System</h1>
-        <p>Please log in to access your account.</p>
+        <p>Please enter your details and log in.</p>
+        <div class="input-container">
+            <input type="text" class="input-box" placeholder="Enter your name" id="name">
+            <input type="email" class="input-box" placeholder="Enter your email" id="email">
+        </div>
         <button class="login-button" onclick="redirectToHome()">Login</button>
     </div>
 
     <script>
         function redirectToHome() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            
+            if (name === "" || email === "") {
+                alert("Please enter your name and email.");
+                return;
+            }
             window.location.href = "Home.html"; // Change this to the correct page
         }
     </script>
-
 </body>
 </html>
